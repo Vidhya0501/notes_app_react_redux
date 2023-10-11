@@ -17,7 +17,7 @@ function Edit() {
     const dispatch=useDispatch();
 
     const navigate=useNavigate();
-    2222
+    
     const handleEdit=(e)=>{
         e.preventDefault();
         dispatch(editNote({id:id,title:etitle,content:econtent,date: sub(new Date(), { minutes: 0 }).toISOString()}))

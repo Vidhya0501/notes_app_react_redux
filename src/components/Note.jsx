@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector,useDispatch } from 'react-redux';
 import {deleteNote}  from '../redux/noteSlice';
-import {Link,useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 import TimeAgo from './TimeAgo';
 
 
@@ -9,6 +9,8 @@ function Note() {
     const notes=useSelector((state)=>state.notes);
     
     const dispatch=useDispatch();
+
+    const navigate=useNavigate();
 
     const handleDelete=(id)=>{
         dispatch(deleteNote({id:id}));
@@ -30,7 +32,12 @@ function Note() {
     <div className='header'>
       <h2>{note.title}</h2>
       <div className='edit-delete'>
-      <Link to={`/edit/${note.id}`}><i className="fa-sharp fa-solid fa-pen"></i></Link>
+      <button className='edit-btn' onClick={()=>{
+                             navigate(`/edit/${note.id}`)
+                        }}>
+                                    <i className="fa-sharp fa-solid fa-pen"></i>
+                                </button>
+      {/* <Link to={`/edit/${note.id}`}><i className="fa-sharp fa-solid fa-pen"></i></Link> */}
       <button onClick={()=>handleDelete(note.id)}><i class="fa-regular fa-trash-can"></i></button>
       </div>
     </div>
