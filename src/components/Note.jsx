@@ -32,12 +32,9 @@ function Note() {
     <div className='header'>
       <h2>{note.title}</h2>
       <div className='edit-delete'>
-      <button className='edit-btn' onClick={()=>{
-                             navigate(`/edit/${note.id}`)
-                        }}>
-                                    <i className="fa-sharp fa-solid fa-pen"></i>
-                                </button>
-      {/* <Link to={`/edit/${note.id}`}><i className="fa-sharp fa-solid fa-pen"></i></Link> */}
+      <button className='edit-btn' onClick={()=>{navigate(`/edit/${note.id}`)}}>
+            <i className="fa-sharp fa-solid fa-pen"></i>
+      </button>
       <button onClick={()=>handleDelete(note.id)}><i class="fa-regular fa-trash-can"></i></button>
       </div>
     </div>
